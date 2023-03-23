@@ -11,7 +11,7 @@ public class Knife : MonoBehaviour
     public float turnAngle = 45;
     public float fallAngle = 90;
     public bool collided;
-    public Vector3 turnVector = new Vector3(0.5f, 0, 0);
+    public Vector3 turnVector = new Vector3(360, 0, 0);
 
     
     //public bool isOnGround = false;
@@ -31,20 +31,19 @@ public class Knife : MonoBehaviour
     {
         MoveTheKnife();
 
-        if (transform.rotation.x > turnAngle && !collided)
-        {
-            transform.rotation = Quaternion.Euler(fallAngle, transform.rotation.y, transform.rotation.z);
-        }
+        //if (transform.rotation.x > turnAngle && !collided)
+        //{
+        //    transform.rotation = Quaternion.Euler(fallAngle, transform.rotation.y, transform.rotation.z);
+        //}
     }
 
     public void MoveTheKnife()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            knifeRb.AddTorque(turnVector * turnSpeed, ForceMode.Impulse);
-            knifeRb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-            knifeRb.AddForce(Vector3.forward * moveSpeed, ForceMode.Impulse);
-           
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    //knifeRb.AddTorque(turnVector * turnSpeed, ForceMode.Impulse);
+        //    //knifeRb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+        //    //knifeRb.AddForce(Vector3.forward * moveSpeed, ForceMode.Impulse);           
+        //}
     }
 }
