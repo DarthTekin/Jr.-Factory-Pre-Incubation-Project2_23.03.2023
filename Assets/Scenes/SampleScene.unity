@@ -603,7 +603,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &933949285
 GameObject:
@@ -784,7 +784,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &998218497
 GameObject:
@@ -883,7 +883,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &998218502
 MonoBehaviour:
@@ -947,7 +947,7 @@ Transform:
   - {fileID: 264819437}
   - {fileID: 1456984888}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1307093883
 GameObject:
@@ -1045,7 +1045,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1307093888
 MonoBehaviour:
@@ -1157,6 +1157,60 @@ Transform:
   m_Father: {fileID: 1276082320}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1986762177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1986762179}
+  - component: {fileID: 1986762178}
+  m_Layer: 0
+  m_Name: KnifeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1986762178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986762177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4c4e5f10aea2d4f82ca53635c4d553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knife: {fileID: 1789264911641381026}
+  endPOS: {x: 0, y: 1, z: 0}
+  jumpPower: 1
+  jumpCount: 1
+  duration: 1
+--- !u!4 &1986762179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986762177}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.310853, y: 1.4580611, z: 0.88160014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1789264911641381026 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2523519453277064013, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
+  m_PrefabInstance: {fileID: 4310482949631542255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4310482949631542255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1170,7 +1224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2523519453277064013, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2523519453277064013, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1214,23 +1268,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3293526454850926275, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
       propertyPath: m_Mass
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380106085678669557, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
-      propertyPath: coMass.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380106085678669557, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
-      propertyPath: jumpSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380106085678669557, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
-      propertyPath: turnSpeed
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4380106085678669557, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
-      propertyPath: gravityModifier
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4380106085678669557, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}

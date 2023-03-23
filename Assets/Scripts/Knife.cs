@@ -41,9 +41,9 @@ public class Knife : MonoBehaviour
     {
         //if (Input.GetKeyDown(KeyCode.Space))
         //{
-        //    //knifeRb.AddTorque(turnVector * turnSpeed, ForceMode.Impulse);
-        //    //knifeRb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-        //    //knifeRb.AddForce(Vector3.forward * moveSpeed, ForceMode.Impulse);           
+        //    knifeRb.AddTorque(turnVector * turnSpeed, ForceMode.Impulse);
+        //    knifeRb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+        //    knifeRb.AddForce(Vector3.forward * moveSpeed, ForceMode.Impulse);           
         //}
     }
 }
