@@ -11,13 +11,15 @@ public class DOTween : MonoBehaviour
     public float jumpPower = 1;
     public int jumpCount;
     public float duration;
+    public float gravityModifier = 2;
+   
     //public Vector3 turnVector = new Vector3(180, 0, 0);
     private RotateMode mode;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Physics.gravity *= gravityModifier;
     }
 
     // Update is called once per frame
@@ -26,8 +28,15 @@ public class DOTween : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             knife.DORotate(knife.localRotation.eulerAngles + new Vector3(180, 0, 0), 1f);
-            knife.DOMoveZ(1, 1f);
+            //knife.DOMoveZ(1, 1f);
             knife.DOJump(endPOS, jumpPower, jumpCount, duration);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Sliecable"))
+        {
+            Physics.gravity /= gravityModifier;
         }
     }
 }

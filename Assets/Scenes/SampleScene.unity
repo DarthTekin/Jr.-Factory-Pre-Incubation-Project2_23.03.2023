@@ -778,8 +778,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.11549245, y: 0.61045086, z: -0.09058159, w: -0.77833563}
-  m_LocalPosition: {x: 3.9821773, y: 2.6024292, z: 1.1870474}
+  m_LocalRotation: {x: -0.083880134, y: 0.46155646, z: -0.043886885, w: -0.88204527}
+  m_LocalPosition: {x: 4.334027, y: 2.3602905, z: -0.1863324}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1187,8 +1187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knife: {fileID: 1789264911641381026}
-  endPOS: {x: 0, y: 1, z: 0}
-  jumpPower: 1
+  endPOS: {x: 0, y: 0, z: 2}
+  jumpPower: 2.5
   jumpCount: 1
   duration: 1
 --- !u!4 &1986762179
@@ -1268,7 +1268,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3293526454850926275, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
       propertyPath: m_Mass
-      value: 1
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293526454850926275, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
+      propertyPath: m_Constraints
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4380106085678669557, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
