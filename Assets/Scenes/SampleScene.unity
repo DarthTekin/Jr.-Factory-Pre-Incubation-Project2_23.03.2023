@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 160220565}
   m_Layer: 0
   m_Name: Sliceable2
-  m_TagString: Untagged
+  m_TagString: Sliceable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 264819434}
   m_Layer: 0
   m_Name: Sliceable4
-  m_TagString: Untagged
+  m_TagString: Sliceable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 506368770}
   m_Layer: 0
   m_Name: Sliceable1
-  m_TagString: Untagged
+  m_TagString: Sliceable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -619,7 +619,7 @@ GameObject:
   - component: {fileID: 933949286}
   m_Layer: 0
   m_Name: Sliceable3
-  m_TagString: Untagged
+  m_TagString: Sliceable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1074,7 +1074,7 @@ GameObject:
   - component: {fileID: 1456984885}
   m_Layer: 0
   m_Name: Sliceable5
-  m_TagString: Untagged
+  m_TagString: Sliceable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1188,9 +1188,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knife: {fileID: 1789264911641381026}
   endPOS: {x: 0, y: 0, z: 2}
-  jumpPower: 2.5
+  jumpPower: 2
   jumpCount: 1
   duration: 1
+  gravityModifier: 0
 --- !u!4 &1986762179
 Transform:
   m_ObjectHideFlags: 0
