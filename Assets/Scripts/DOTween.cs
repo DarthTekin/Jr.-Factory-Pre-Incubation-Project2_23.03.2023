@@ -5,7 +5,6 @@ using DG.Tweening;
 
 public class DOTween : MonoBehaviour
 {
-    public Transform knife;
     public Vector3 endPOS;
 
     public float jumpPower = 1;
@@ -27,9 +26,9 @@ public class DOTween : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            knife.DORotate(knife.localRotation.eulerAngles + new Vector3(180, 0, 0), 1f);
-            //knife.DOMoveZ(1, 1f);
-            knife.DOJump(endPOS, jumpPower, jumpCount, duration);
+            transform.DORotate(transform.localRotation.eulerAngles + new Vector3(180, 0, 0), 1f);
+            //transform.DOMoveZ(1, 1f);
+            transform.DOJump(endPOS, jumpPower, jumpCount, duration);
         }
     }
     private void OnCollisionEnter(Collision collision)
