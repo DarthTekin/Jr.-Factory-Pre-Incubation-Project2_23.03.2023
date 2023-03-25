@@ -5,7 +5,7 @@ using EzySlice;
 
 public class Knife : MonoBehaviour
 {
-    private Material material;
+    public Material material;
     private GameObject sliceable;
     
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class Knife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && sliceable != null)
+        if (sliceable != null)
         {
             SlicedHull divident = Divide(sliceable, material);
             GameObject dividentup = divident.CreateUpperHull(sliceable, material);
