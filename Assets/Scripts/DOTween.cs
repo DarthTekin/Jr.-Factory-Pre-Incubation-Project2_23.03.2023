@@ -7,8 +7,7 @@ using EzySlice;
 public class DOTween : MonoBehaviour
 {
     public Vector3 endPOS;
-    public Material material;
-    public GameObject sliceable;
+    
 
     public float jumpPower = 1;
     public int jumpCount;
@@ -31,16 +30,10 @@ public class DOTween : MonoBehaviour
         {
             transform.DORotate(transform.localRotation.eulerAngles + new Vector3(180, 0, 0), 1f);
             //transform.DOMoveZ(1, 1f);
-            transform.DOJump(endPOS, jumpPower, jumpCount, duration);
-        }
+            transform.DOJump(endPOS, jumpPower, jumpCount, duration);            
+        }       
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Sliceable"))
-        {
-            material = other.GetComponent<MeshRenderer>().material;
-            sliceable = other.gameObject;
-        }
-    }
+
+    
 }

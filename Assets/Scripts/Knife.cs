@@ -1,49 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EzySlice;
 
 public class Knife : MonoBehaviour
 {
-    public int jumpSpeed = Mathf.Clamp(5, 4, 6);
-    public int turnSpeed = Mathf.Clamp(2, 1, 3);
-    public int moveSpeed = Mathf.Clamp(1, 0, 2);
-    public float gravityModifier = 1;
-    public float turnAngle = 45;
-    public float fallAngle = 90;
-    public bool collided;
-    public Vector3 turnVector = new Vector3(360, 0, 0);
-
+    private Material material;
+    private GameObject sliceable;
     
-    //public bool isOnGround = false;
-
-    private Rigidbody knifeRb;
-    public Vector3 coMass;
     // Start is called before the first frame update
     void Start()
     {
-        knifeRb = GetComponent<Rigidbody>();
-        coMass = knifeRb.centerOfMass;
-        Physics.gravity *= gravityModifier;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveTheKnife();
-
-        //if (transform.rotation.x > turnAngle && !collided)
-        //{
-        //    transform.rotation = Quaternion.Euler(fallAngle, transform.rotation.y, transform.rotation.z);
-        //}
+        if (Input.GetKeyDown(KeyCode.Space) && sliceable != null)
+        {
+            SlicedHull divident = Divide(sliceable, material);
+            GameObject dividentup = divident.CreateUpperHull(sliceable, material);
+            dividentup.AddComponent<MeshCollider>().convex = true;
+            dividentup.AddComponent<Rigidbody>();
+            dividentup.layer = LayerMask.NameToLayer("Sliceable");
+            GameObject dividentdown = divident.CreateLowerHull(sliceable, material);
+            dividentdown.AddComponent<MeshCollider>().convex = true;
+            dividentdown.AddComponent<Rigidbody>();
+            dividentdown.layer = LayerMask.NameToLayer("Sliceable");
+            Destroy(sliceable);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Sliceable"))
+        {
+            material = other.GetComponent<MeshRenderer>().material;
+            sliceable = other.gameObject;
+        }
     }
 
-    public void MoveTheKnife()
+    public SlicedHull Divide(GameObject obj, Material crossSectionMaterial = null)
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    knifeRb.AddTorque(turnVector * turnSpeed, ForceMode.Impulse);
-        //    knifeRb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-        //    knifeRb.AddForce(Vector3.forward * moveSpeed, ForceMode.Impulse);           
-        //}
+        return obj.Slice(transform.position, transform.up, crossSectionMaterial);
     }
 }

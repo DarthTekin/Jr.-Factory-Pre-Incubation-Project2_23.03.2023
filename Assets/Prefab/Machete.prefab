@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1972784442248019686}
   - component: {fileID: 1344932100441868333}
   - component: {fileID: 1789264911641381027}
+  - component: {fileID: 4050162633810910478}
   m_Layer: 0
   m_Name: Machete
   m_TagString: Knife
@@ -111,7 +112,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2523519453276854681}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.10512688, y: 0.28728846, z: 1.4879103}
@@ -146,3 +147,15 @@ MonoBehaviour:
   jumpCount: 1
   duration: 1
   gravityModifier: 1
+--- !u!114 &4050162633810910478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523519453276854681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2852602245efd244a9d903bab7592ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
