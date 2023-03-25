@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using EzySlice;
 
 public class DOTween : MonoBehaviour
 {
     public Vector3 endPOS;
+    public Material material;
+    public GameObject sliceable;
 
     public float jumpPower = 1;
     public int jumpCount;
@@ -31,11 +34,13 @@ public class DOTween : MonoBehaviour
             transform.DOJump(endPOS, jumpPower, jumpCount, duration);
         }
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Sliecable"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Sliceable"))
         {
-            Physics.gravity /= gravityModifier;
+            material = other.GetComponent<MeshRenderer>().material;
+            sliceable = other.gameObject;
         }
     }
 }
