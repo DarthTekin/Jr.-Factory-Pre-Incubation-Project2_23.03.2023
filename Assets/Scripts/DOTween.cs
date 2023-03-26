@@ -37,8 +37,8 @@ public class DOTween : MonoBehaviour
     {
         if (other.gameObject.CompareTag("UnSliceable"))
         {
-            float offSetPos = transform.position.y - other.gameObject.transform.position.y;
-            transform.position = new Vector3(transform.position.x, other.gameObject.gameObject.GetComponent<BoxCollider>().size.y, transform.position.z)
+            Vector3 endPos = new Vector3(transform.position.x, other.gameObject.GetComponent<BoxCollider>().size.y, transform.position.z);
+            transform.DOMove(endPos,3.0f);
 ;        }   
     }
 }

@@ -1052,28 +1052,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &963571249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2523519453276854681, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
-  m_PrefabInstance: {fileID: 4310482949631542255}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &963571258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963571249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21deda0b6cfba384d8bdf9ad112933f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialSliceSide: {fileID: 2100000, guid: 0e8616d051ad7e74a86a47d3cca833df, type: 2}
-  explosionForce: 3
-  explosionRadius: 2
-  gravity: 1
-  kinematic: 0
 --- !u!1 &998218497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,17 +1439,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1344932100441868333, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
-      propertyPath: m_Size.x
-      value: 0.12
+    - target: {fileID: 963571258, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
+      propertyPath: explosionForce
+      value: 0.001
       objectReference: {fileID: 0}
-    - target: {fileID: 1344932100441868333, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
-      propertyPath: m_Size.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1344932100441868333, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
-      propertyPath: m_Size.z
-      value: 0.6
+    - target: {fileID: 963571258, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
+      propertyPath: explosionRadius
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2523519453276854681, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
       propertyPath: m_Name
@@ -1521,14 +1495,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3293526454850926275, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4050162633810910478, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
-      propertyPath: material
-      value: 
-      objectReference: {fileID: 2100000, guid: 0e8616d051ad7e74a86a47d3cca833df, type: 2}
-    m_RemovedComponents:
-    - {fileID: 4050162633810910478, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 114593b63efe44a4994cf2c70ddbe737, type: 3}
