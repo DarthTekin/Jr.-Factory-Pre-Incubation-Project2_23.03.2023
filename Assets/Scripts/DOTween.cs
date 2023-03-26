@@ -30,9 +30,15 @@ public class DOTween : MonoBehaviour
             transform.DORotate(transform.localRotation.eulerAngles + new Vector3(180, 0, 0), 1f);
             //transform.DOMoveZ(1, 1f);
             transform.DOJump(endPOS, jumpPower, jumpCount, duration);            
-        }       
+        }      
     }
 
-
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("UnSliceable"))
+        {
+            float offSetPos = transform.position.y - other.gameObject.transform.position.y;
+            transform.position = new Vector3(transform.position.x, other.gameObject.gameObject.GetComponent<BoxCollider>().size.y, transform.position.z)
+;        }   
+    }
 }

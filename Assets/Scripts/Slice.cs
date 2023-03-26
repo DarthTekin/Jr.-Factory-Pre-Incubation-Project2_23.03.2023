@@ -5,18 +5,22 @@ using EzySlice;
 
 public class Slice : MonoBehaviour
 {
-    public Material materialSliceSide;
     public float explosionForce;
     public float explosionRadius;
     public bool gravity;
     public bool kinematic;
 
+
+    public AudioClip sliceSound;
+    private AudioSource playerAudio;
+    public Material materialSliceSide;
     private MoveTheScene moveScript;
 
     // Start is called before the first frame update
     void Start()
     {
         moveScript = GameObject.FindGameObjectWithTag("UnSliceable").GetComponent<MoveTheScene>();
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,29 +33,31 @@ public class Slice : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Sliceable"))
         {
-            SlicedHull sliceObj = Divide(other.gameObject, materialSliceSide);
-            GameObject sliceObjectUp = sliceObj.CreateUpperHull(other.gameObject, materialSliceSide);
-            GameObject sliceObjectDown = sliceObj.CreateLowerHull(other.gameObject, materialSliceSide);
+            SlicedHull divident = Divide(other.gameObject, materialSliceSide);
+            GameObject dividentUp = divident.CreateUpperHull(other.gameObject, materialSliceSide);
+            GameObject dividentDown = divident.CreateLowerHull(other.gameObject, materialSliceSide);
             Destroy(other.gameObject);
-            AddComponent(sliceObjectUp);
-            AddComponent(sliceObjectDown);
+            AddComponent(dividentUp);
+            AddComponent(dividentDown);
+            playerAudio.PlayOneShot(sliceSound, 0.2f);            
         }
     }
 
-    private SlicedHull Divide(GameObject obj, Material mat)
+    private SlicedHull Divide(GameObject sliecable, Material mat)
     {
-        return obj.Slice(transform.position, transform.right, mat);        
+        return sliecable.Slice(transform.position, transform.right, mat);        
     }
 
-    void AddComponent(GameObject obj)
+    void AddComponent(GameObject sliceable)
     {
-        obj.AddComponent<MoveTheScene>();
-        obj.AddComponent<BoxCollider>();
-        var rigidbody = obj.AddComponent<Rigidbody>();
+        sliceable.AddComponent<MoveTheScene>();
+        sliceable.AddComponent<BoxCollider>();
+        var rigidbody = sliceable.AddComponent<Rigidbody>();
         rigidbody.useGravity = gravity;
         rigidbody.isKinematic = kinematic;
-        rigidbody.AddExplosionForce(explosionForce, obj.transform.position, explosionRadius);
-        obj.tag = "Sliceable";
-        Destroy(obj, 5f);
+        rigidbody.AddExplosionForce(explosionForce, sliceable.transform.position, explosionRadius);
+        rigidbody.mass = 0.01f;
+        //sliceable.tag = "Sliceable";
+        Destroy(sliceable, 5f);
     }
 }
