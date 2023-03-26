@@ -7,9 +7,9 @@ public class Slice : MonoBehaviour
 {
     public float explosionForce;
     public float explosionRadius;
+    public float gravityModifier = 1.0f;
     public bool gravity;
     public bool kinematic;
-
 
     public AudioClip sliceSound;
     private AudioSource playerAudio;
@@ -21,6 +21,7 @@ public class Slice : MonoBehaviour
     {
         moveScript = GameObject.FindGameObjectWithTag("UnSliceable").GetComponent<MoveTheScene>();
         playerAudio = GetComponent<AudioSource>();
+        Physics.gravity *= gravityModifier;
     }
 
     // Update is called once per frame
@@ -54,10 +55,11 @@ public class Slice : MonoBehaviour
         sliceable.AddComponent<BoxCollider>();
         var rigidbody = sliceable.AddComponent<Rigidbody>();
         rigidbody.useGravity = gravity;
+        rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+        //rigidbody.AddForce(Vector3.down, ForceMode.VelocityChange);
         rigidbody.isKinematic = kinematic;
-        rigidbody.AddExplosionForce(explosionForce, sliceable.transform.position, explosionRadius);
-        rigidbody.mass = 0.01f;
+        //rigidbody.AddExplosionForce(explosionForce, sliceable.transform.position, explosionRadius);        
         //sliceable.tag = "Sliceable";
-        Destroy(sliceable, 5f);
+        Destroy(sliceable, 5f);        
     }
 }

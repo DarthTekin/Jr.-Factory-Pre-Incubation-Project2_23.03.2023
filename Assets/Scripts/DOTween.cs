@@ -35,10 +35,14 @@ public class DOTween : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("UnSliceable"))
+        if (other.gameObject.CompareTag("Sliceable"))
+        {
+            gravityModifier = 1.0f;
+        }       
+        else if (other.gameObject.CompareTag("UnSliceable"))
         {
             Vector3 endPos = new Vector3(transform.position.x, other.gameObject.GetComponent<BoxCollider>().size.y, transform.position.z);
-            transform.DOMove(endPos,3.0f);
-;        }   
+            transform.DOMove(endPos,1.0f);
+;       }   
     }
 }
